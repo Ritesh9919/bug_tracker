@@ -40,7 +40,6 @@ export const login = async(req, res, next)=> {
         const token = user.generateAccessToken();
         res.cookie("token", token, {
             httpOnly:true,
-            domain:process.env.DOMAIN,
             secure:process.env.NODE_ENV === "production" ? true:false,
             sameSite:process.env.NODE_ENV === "production" ? "none":"lax",
             path:'/'
